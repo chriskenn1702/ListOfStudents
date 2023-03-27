@@ -17,7 +17,7 @@ struct DetailView: View {
             Text("Student Name:")
                 .bold()
             
-            TextField("enter place name", text: $student.name)
+            TextField("enter student name", text: $student.name)
                 .textFieldStyle(.roundedBorder)
             
             Spacer()
