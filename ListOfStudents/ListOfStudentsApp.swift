@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct ListOfStudentsApp: App {
+    @StateObject var studentsVM = StudentViewModel()
     var body: some Scene {
         WindowGroup {
             StudentListView()
+                .environmentObject(studentsVM)
         }
     }
 }

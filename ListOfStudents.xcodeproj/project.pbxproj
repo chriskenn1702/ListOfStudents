@@ -12,6 +12,8 @@
 		E09E786D29D238FD005A7A3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E09E786C29D238FD005A7A3B /* Assets.xcassets */; };
 		E09E787029D238FD005A7A3B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E09E786F29D238FD005A7A3B /* Preview Assets.xcassets */; };
 		E09E787729D23AE0005A7A3B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09E787629D23AE0005A7A3B /* DetailView.swift */; };
+		E09E787929D244A5005A7A3B /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09E787829D244A5005A7A3B /* Student.swift */; };
+		E09E787B29D245F7005A7A3B /* StudentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09E787A29D245F7005A7A3B /* StudentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		E09E786C29D238FD005A7A3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E09E786F29D238FD005A7A3B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E09E787629D23AE0005A7A3B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		E09E787829D244A5005A7A3B /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		E09E787A29D245F7005A7A3B /* StudentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 				E09E786829D238FB005A7A3B /* ListOfStudentsApp.swift */,
 				E09E786A29D238FB005A7A3B /* StudentListView.swift */,
 				E09E787629D23AE0005A7A3B /* DetailView.swift */,
+				E09E787829D244A5005A7A3B /* Student.swift */,
+				E09E787A29D245F7005A7A3B /* StudentViewModel.swift */,
 				E09E786C29D238FD005A7A3B /* Assets.xcassets */,
 				E09E786E29D238FD005A7A3B /* Preview Content */,
 			);
@@ -142,7 +148,9 @@
 			files = (
 				E09E786B29D238FB005A7A3B /* StudentListView.swift in Sources */,
 				E09E787729D23AE0005A7A3B /* DetailView.swift in Sources */,
+				E09E787B29D245F7005A7A3B /* StudentViewModel.swift in Sources */,
 				E09E786929D238FB005A7A3B /* ListOfStudentsApp.swift in Sources */,
+				E09E787929D244A5005A7A3B /* Student.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
