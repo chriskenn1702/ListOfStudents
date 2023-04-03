@@ -20,6 +20,31 @@ struct DetailView: View {
             TextField("enter student name", text: $student.name)
                 .textFieldStyle(.roundedBorder)
             
+            Text("Major")
+                .bold()
+            
+            TextField("Enter Major", text: $student.major)
+                .textFieldStyle(.roundedBorder)
+            
+            Text("Hometown:")
+                .bold()
+            
+            TextField("Enter Hometown", text: $student.hometown)
+                .textFieldStyle(.roundedBorder)
+            
+            HStack{
+                Text("Select Flavor:")
+                    .bold()
+                
+                Spacer()
+                
+                Picker("Doesn't show up on iOS", selection: $student.year) {
+                    ForEach(Year.allCases, id: \.self) {year in
+                        Text(year.rawValue.capitalized)
+                    }
+                }
+                .pickerStyle(.automatic)
+            }
             Spacer()
         }
         .padding()
@@ -34,6 +59,7 @@ struct DetailView: View {
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Save"){
+                    studentVM.saveStudents(student: student)
                     dismiss()
                 }
             }
@@ -48,3 +74,4 @@ struct DetailView_Previews: PreviewProvider {
         }
     }
 }
+

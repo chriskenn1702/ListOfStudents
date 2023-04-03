@@ -11,58 +11,54 @@ class StudentViewModel: ObservableObject{
     @Published var studentsArray: [Student] = []
     
     init() {
-        let students = ["Holt B.",
-                        "Luke B.",
-                        "Michael B.",
-                        "Milan C.",
-                        "Russell C.",
-                        "Gabriela C.",
-                        "Kevin C.",
-                        "Charles C.",
-                        "Matthew C.",
-                        "Gleidson D.",
-                        "Jack D.",
-                        "John G.",
-                        "Matthew Gr.",
-                        "Matthew Gu.",
-                        "William H.",
-                        "Shane J.",
-                        "Connor J.",
-                        "Andy J.",
-                        "Christopher K.",
-                        "Dylan K.",
-                        "Riya K.",
-                        "Aakash K.",
-                        "Benjamin L.",
-                        "Dilan L.",
-                        "Anthony M.",
-                        "Tyler M.",
-                        "Annie M.",
-                        "Avery M.",
-                        "Emily M.",
-                        "Addison M.",
-                        "Dylan M.",
-                        "Owen O.",
-                        "Zachary P.",
-                        "Gabriella P.",
-                        "William P.",
-                        "Caitlin P.",
-                        "Syed R.",
-                        "William R.",
-                        "Lauren S.",
-                        "George S.",
-                        "Astrid S.",
-                        "Thomas S.",
-                        "Hailey S.",
-                        "Jasmine T.",
-                        "Michael V.",
-                        "Jonathan W.",
-                        "Theodore W.",
-                        "Andrew Y."]
+        loadData()
         
-        for student in students {
-            studentsArray.append(Student(id:UUID().uuidString, name:student))
+    }
+    func saveData() {
+        let path = URL.documentsDirectory.appending(component: "studentsArray")
+        let data = try? JSONEncoder().encode(studentsArray) // try? means if error is thrown, data = nil
+        do {
+            try data?.write(to: path)
+        } catch {
+            print("😡 ERROR: Could not save data \(error.localizedDescription)")
         }
+
+    }
+    
+    func loadData() {
+        let path = URL.documentsDirectory.appending(component: "studentsArray")
+        guard let data = try? Data(contentsOf: path) else {return}
+        do {
+            studentsArray = try JSONDecoder().decode(Array<Student>.self, from: data)
+        } catch {
+            print("😡 ERROR: Could not load data \(error.localizedDescription)")
+        }
+    }
+    
+    func saveStudents(student: Student){
+        if student.id == nil{
+            var newStudent = student
+            newStudent.id = UUID().uuidString
+            studentsArray.append(newStudent)
+        }else{
+            if let index = studentsArray.firstIndex(where: {$0.id == student.id}){
+                studentsArray[index] = student
+            }
+        }
+        saveData()
+
+    }
+    
+    func deleteStudents(indexSet: IndexSet){
+        studentsArray.remove(atOffsets: indexSet)
+        saveData()
+
+    }
+    
+    func moveStudents(indexSet: IndexSet, int: Int){
+        studentsArray.move(fromOffsets: indexSet, toOffset: int)
+        saveData()
+
     }
 }
 

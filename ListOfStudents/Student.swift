@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Year: CaseIterable, Codable{
+enum Year: String, CaseIterable, Codable{
     case freshman
     case sophomore
     case junior

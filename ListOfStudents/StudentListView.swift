@@ -10,6 +10,7 @@ import SwiftUI
 struct StudentListView: View {
     @EnvironmentObject var studentVM: StudentViewModel
     @State private var sheetIsPresented = false
+    
     var body: some View {
         NavigationStack {
             List {
@@ -22,6 +23,8 @@ struct StudentListView: View {
                         Text(student.name)
                     }
                 }
+                .onDelete(perform: studentVM.deleteStudents)
+                .onMove(perform: studentVM.moveStudents)
             }
             .font(.title2)
             .listStyle(.plain)
